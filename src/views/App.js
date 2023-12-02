@@ -1,9 +1,14 @@
-import logo from './logo.svg';
-import './App.scss';
+import logo from "./logo.svg";
+import "./App.scss";
 // import MyComponent from './Examples/MyComponent';
-import ListTodo from './ToDoApp/ListToDo';
+import ListToDo from "./ToDoApp/ListToDo";
+import { BrowserRouter, Link, Routes, Route, NavLink } from "react-router-dom";
+import MyComponent from "./Examples/MyComponent";
+import Home from "./Navigation/Home";
+import Navbar from "./Navigation/Navbar";
 
-function App() { //App = () => {}
+function App() {
+  //App = () => {}
   return (
     <div className="App">
       <header className="App-header">
@@ -19,7 +24,13 @@ function App() { //App = () => {}
         >
           Learn React
         </a>
-        <ListTodo />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" exact element={<Home />} />
+            <Route path="/todo" exact element={<ListToDo />} />
+            <Route path="/about" exact element={<MyComponent />} />
+          </Routes>
+        </BrowserRouter>
       </header>
     </div>
   );

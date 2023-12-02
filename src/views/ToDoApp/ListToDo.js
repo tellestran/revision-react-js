@@ -2,6 +2,7 @@ import React from "react";
 import "./ListToDo.scss";
 import AddTodo from "./AddToDo";
 import { toast } from "react-toastify";
+import Navbar from "../Navigation/Navbar";
 
 class ListTodo extends React.Component {
   state = {
@@ -76,6 +77,7 @@ class ListTodo extends React.Component {
     console.log(">>> check empty object: ", isEmptyObj);
     return (
       <div className="list-todo-container">
+        <Navbar />
         <AddTodo addNewTodo={this.addNewTodo} />
         <div className="list-todo-content">
           {listTodos &&
